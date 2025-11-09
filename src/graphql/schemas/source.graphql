@@ -1,0 +1,13 @@
+type Query {
+    hello(name: String): String!,
+    getUser(id: ID!): User
+}
+
+type User {
+    id: ID!
+    name: String!
+    email: String!
+    city: String!
+    birthday: String!
+}
+

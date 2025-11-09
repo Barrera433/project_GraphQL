@@ -1,12 +1,16 @@
 import { GraphQLSchema } from "graphql";
-import { makeExecutableSchema } from "graphql-tools";
+import { makeExecutableSchema } from "@graphql-tools/schema";
 import "graphql-import-node";
-import * as rootSchema  from "./schemas/schema.graphql";
+import  rootSchema  from "./schemas/source.graphql";
 import { resolvers } from "./resolvers/resolversMap";
-export const schema : GraphQLSchema = makeExecutableSchema({
-    typeDefs: [
-        rootSchema
+import  peopleSchema  from "./schemas/people.graphql";
+import { mergeTypeDefs } from "graphql-tools-merge-typedefs";
+import { peopleResolvers } from "./resolvers/people";
 
-     ],
-     resolvers: resolvers
+export const schema : GraphQLSchema = makeExecutableSchema({
+    typeDefs: mergeTypeDefs([
+        rootSchema,
+        peopleSchema
+    ]),
+    resolvers: [resolvers, peopleResolvers],
 });

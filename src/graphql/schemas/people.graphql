@@ -1,0 +1,36 @@
+type Query {
+    # Usar Camel Case para consistencia
+    getPeople: [people]
+    getPersonByName(name: String!): [people]
+}
+
+type people {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    age: Int!
+    email: String!
+}
+
+type Mutation {
+   
+    createPerson(input: peopleInput!): people
+   
+    updatePerson(id: ID!, input: peopleUpdateInput!): people
+    
+    deletePerson(id: ID!): people
+}
+
+input peopleInput {
+    firstName: String!
+    lastName: String!
+    age: Int!
+    email: String!
+}
+
+input peopleUpdateInput {
+    firstName: String
+    lastName: String
+    age: Int
+    email: String
+}

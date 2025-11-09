@@ -1,5 +1,5 @@
 import { IResolvers } from "@graphql-tools/utils";
-import { dataSource } from "../datasource";
+import { dataSource } from "../../data/dataSource";
 
 const resolvers: IResolvers = {
     Query: {
