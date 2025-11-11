@@ -1,10 +1,11 @@
+import connectDB from './config/db';
 import { ApolloServer } from "apollo-server-express";
 import { schema } from "./graphql";
 import cors from "cors";
 import express, { Express } from "express";
 import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
 
-
+connectDB();
 const app: Express = express();
 
 app.use(cors());
