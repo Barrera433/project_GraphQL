@@ -1,0 +1,50 @@
+type Query{
+    getEmployees: [Employee!]!
+    getEmployeeByName(name: String!): [Employee!]!
+}
+
+type Employee {
+    id: ID!
+    Name: String!
+    Email: String!
+    age: String!
+    salary: String!
+    position: String!
+    adress: String!
+    phone: String!
+    # ✅ CORRECCIÓN: Ahora devuelve el objeto Skill, no solo Strings
+    Skill : [Skill!] 
+}
+
+type Mutation {
+    # ✅ CORRECCIÓN: Los nombres de input coinciden
+    createEmployee(input: NewEmployeeInput!): Employee!
+    updateEmployee(id: ID!, input: EditEmployeeInput!): Employee!
+    deleteEmployee(id: ID!): Employee!
+}
+
+# ✅ CORRECCIÓN: Nuevo nombre para coincidir con la mutación
+input NewEmployeeInput {
+    Name: String!
+    Email: String!
+    age: String!
+    salary: String!
+    position: String!
+    adress: String!
+    phone: String!
+    # ✅ CORRECCIÓN: Recibe los IDs de las habilidades para Mongoose
+    Skill : [ID]
+}
+
+# ✅ CORRECCIÓN: Nuevo nombre para coincidir con la mutación
+input EditEmployeeInput {
+    Name: String
+    Email: String
+    age: String
+    salary: String
+    position: String
+    adress: String
+    phone: String
+    # ✅ CORRECCIÓN: Recibe los IDs de las habilidades
+    Skill : [ID]
+}

@@ -1,0 +1,22 @@
+type Skill {
+    id : ID!
+    name : String!
+}
+
+input SkillInput {
+    name : String!
+} 
+
+type Query {
+    getSkills : [Skill!]!
+}
+
+type Mutation {
+    createSkill(input: SkillInput!) : Skill!
+    updateSkill(id: ID!, input: EditSkillInput!) : Skill!
+    deleteSkill(id: ID!): Skill! # Añadido deleteSkill por consistencia
+} 
+
+input EditSkillInput {
+    name : String
+}
