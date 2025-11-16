@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "commonjs",
+        "lib": ["es2020", "dom"],
+        "removeComments": true,
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "outDir": "../dist", // Compila a 'dist' fuera de 'be_graphql'
+        "rootDir": "./src"  // La raíz del código es 'src'
+    },
+    // Incluye todos los archivos .ts dentro de la carpeta 'src'
+    "include": ["./src/**/*"], 
+    "exclude": ["node_modules", "**/*.test.ts"]
+}

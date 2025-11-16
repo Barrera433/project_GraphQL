@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  graphql_api:
+    container_name: graphql_api_service
+    build:
+      # CRÍTICO: Define el contexto de construcción para que apunte a la carpeta donde está el Dockerfile.
+      context: ./be_graphql 
+    restart: always
+    ports:
+      - "4000:4000"
+    volumes:
+      # Mapeamos la carpeta de código para que nodemon pueda hacer hot-reload
+      - ./be_graphql:/app 
+      # Volumen anónimo para prevenir que el node_modules de tu Host interfiera con el del Contenedor
+      - /app/node_modules 
+    depends_on:
+      - mongodb
+    environment:
+      # CRÍTICO: La API se conecta a la base de datos usando el nombre del servicio 'mongodb'
+      MONGO_URI: 'mongodb://mongodb:27017/projectdb' 
+
+  mongodb:
+    container_name: mongo_db_service
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      # Persistencia de datos en el disco local
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:

@@ -1,0 +1,40 @@
+{
+    "name": "fe_test",
+    "version": "1.0.0",
+    "description": "A front-end test project",
+    "main": "index.js",
+    "scripts": {
+        "dev": "webpack-dev-server --mode development ", 
+        "build": "webpack -p"
+    },
+    "author": "Your Name",
+    "license": "MIT",
+
+    "devDependencies": {
+        "@babel/cli": "^7.24.0",
+        "@babel/preset-react": "^7.24.0",
+        "@babel/preset-typescript": "^7.24.0",
+        "@types/react": "18.2.26",
+        "@types/react-dom": "18.2.10",
+        "@types/react-router-dom": "5.3.3",
+        "@types/styled-components": "5.1.26",
+        "clean-webpack-plugin": "4.0.0",
+        "html-webpack-plugin": "5.5.0",
+        "source-map-loader": "3.0.0",
+        "typescript": "5.9.3",
+        "webpack": "^5.93.0",
+        "webpack-cli": "^4.0.0",
+        "webpack-dev-server": "^4.15.2",
+        "babel-loader": "^8.0.0",
+        "@babel/core": "^7.0.0",
+        "@babel/preset-env": "^7.0.0"
+    },
+    "dependencies": {
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "react-router-dom": "5.3.4",
+        "styled-components": "5.3.11",
+        "@apollo/client": "^3.10.8",  
+        "graphql": "16.12.0"
+    }
+}
